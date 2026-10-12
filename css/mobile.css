@@ -143,12 +143,12 @@
 }
 
 .hero-agency-badge img {
-  height: 25px;
+  height: 22px;
   width: auto;
-  max-width: 80px;
+  max-width: 95px;
   object-fit: contain;
   display: block;
-  opacity: 0.9;
+  opacity: 0.92;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
   transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
 }
