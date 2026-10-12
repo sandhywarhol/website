@@ -1,0 +1,10 @@
+/* ==========================================================================
+   MASTER STYLESHEET AGGREGATOR
+   - css/base.css: Tokens, Reset, Typography, Custom Cursor, Shared Basics
+   - css/desktop.css: Dedicated Desktop View (Screen width >= 992px)
+   - css/mobile.css: Dedicated Mobile View (Screen width <= 991px)
+   ========================================================================== */
+
+@import './base.css';
+@import './desktop.css' (min-width: 992px);
+@import './mobile.css' (max-width: 991px);

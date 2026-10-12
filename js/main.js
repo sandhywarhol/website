@@ -1,0 +1,295 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    const links = document.querySelectorAll('a, button, .brand-partner-item, .contact-channel-row, .btn-contact-action, .app-module-card, .ct-mod-row, .lead-node');
+
+    if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+            });
+        });
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Scroll Animations (Fade up)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+    fadeElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Real-Time Calendar Rendering
+    let calDate = new Date();
+
+    const renderCalendar = (targetDate) => {
+        const monthTitle = document.getElementById('cal-month-title');
+        const grid = document.getElementById('cal-grid');
+        if (!monthTitle || !grid) return;
+
+        const months = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const year = targetDate.getFullYear();
+        const month = targetDate.getMonth();
+        monthTitle.textContent = `${months[month]} ${year}`;
+
+        const today = new Date();
+        const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+        const currentDay = today.getDate();
+
+        // First day of current month (0: Sunday, 1: Monday, ...)
+        const firstDayIndex = new Date(year, month, 1).getDay();
+        // Days in current month
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        // Days in previous month
+        const daysInPrevMonth = new Date(year, month, 0).getDate();
+
+        let daysHtml = '';
+
+        // Trailing days from previous month
+        for (let i = firstDayIndex; i > 0; i--) {
+            const prevDayNum = daysInPrevMonth - i + 1;
+            daysHtml += `<div class="cal-day muted">${prevDayNum}</div>`;
+        }
+
+        // Days of current month
+        for (let d = 1; d <= daysInMonth; d++) {
+            const isToday = isCurrentMonth && d === currentDay;
+            const dayOfWeek = new Date(year, month, d).getDay();
+            const isSunday = dayOfWeek === 0;
+            const isFriOrSat = dayOfWeek === 5 || dayOfWeek === 6;
+
+            let classes = 'cal-day';
+            let titleText = '';
+
+            if (isToday) {
+                classes += ' active-day';
+                titleText = 'Today';
+            }
+
+            if (isSunday) {
+                classes += ' cal-sunday';
+                titleText = titleText ? `${titleText} • Off (Sunday)` : 'Not Available (Sunday)';
+            } else if (isFriOrSat) {
+                classes += ' cal-black-dot';
+                titleText = titleText ? `${titleText} • Studio Shoot (Fri/Sat)` : 'Not Available (Friday/Saturday)';
+            } else {
+                titleText = titleText || 'Available for Bookings';
+            }
+
+            daysHtml += `<div class="${classes}" title="${titleText}">${d}</div>`;
+        }
+
+        // Leading days from next month to fill grid
+        const totalRendered = firstDayIndex + daysInMonth;
+        const remainingCells = (7 - (totalRendered % 7)) % 7;
+        for (let n = 1; n <= remainingCells; n++) {
+            daysHtml += `<div class="cal-day muted">${n}</div>`;
+        }
+
+        grid.innerHTML = daysHtml;
+    };
+
+    renderCalendar(calDate);
+
+    const prevBtn = document.getElementById('cal-prev');
+    const nextBtn = document.getElementById('cal-next');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            calDate.setMonth(calDate.getMonth() - 1);
+            renderCalendar(calDate);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            calDate.setMonth(calDate.getMonth() + 1);
+            renderCalendar(calDate);
+        });
+    }
+
+    // Real-Time Live Countdown to Upcoming Photoshoot Session
+    const updateCountdown = () => {
+        const daysEl = document.getElementById('pd-days');
+        const hoursEl = document.getElementById('pd-hours');
+        const minsEl = document.getElementById('pd-mins');
+        const secsEl = document.getElementById('pd-secs');
+
+        if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+        const now = new Date();
+        // Target: next routine shoot (every Thursday at 09:00 AM local time)
+        const target = new Date(now);
+        const dayOfWeek = now.getDay();
+        const daysUntilThursday = (4 - dayOfWeek + 7) % 7;
+        target.setDate(now.getDate() + (daysUntilThursday === 0 && now.getHours() >= 9 ? 7 : daysUntilThursday));
+        target.setHours(9, 0, 0, 0);
+
+        const diff = target.getTime() - now.getTime();
+        if (diff <= 0) {
+            daysEl.textContent = '00';
+            hoursEl.textContent = '00';
+            minsEl.textContent = '00';
+            secsEl.textContent = '00';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minsEl.textContent = String(mins).padStart(2, '0');
+        secsEl.textContent = String(secs).padStart(2, '0');
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Capabilities Suite Switcher (View How I Work vs View End-to-End Production)
+    const btnSuiteLead = document.getElementById('btn-suite-lead');
+    const btnSuitePipeline = document.getElementById('btn-suite-pipeline');
+    const suiteViewLead = document.getElementById('suite-view-lead');
+    const suiteViewPipeline = document.getElementById('suite-view-pipeline');
+    const suiteStatusTag = document.getElementById('suite-status-tag');
+
+    if (btnSuiteLead && btnSuitePipeline && suiteViewLead && suiteViewPipeline) {
+        btnSuiteLead.addEventListener('click', () => {
+            btnSuiteLead.classList.add('active');
+            btnSuitePipeline.classList.remove('active');
+            suiteViewLead.classList.add('active');
+            suiteViewLead.style.display = 'block';
+            suiteViewPipeline.classList.remove('active');
+            suiteViewPipeline.style.display = 'none';
+            if (suiteStatusTag) suiteStatusTag.textContent = '6 Active Principles';
+        });
+
+        btnSuitePipeline.addEventListener('click', () => {
+            btnSuitePipeline.classList.add('active');
+            btnSuiteLead.classList.remove('active');
+            suiteViewPipeline.classList.add('active');
+            suiteViewPipeline.style.display = 'block';
+            suiteViewLead.classList.remove('active');
+            suiteViewLead.style.display = 'none';
+            if (suiteStatusTag) suiteStatusTag.textContent = '8 Stage Gates';
+        });
+    }
+
+    // App-Style Floating Bottom Dock Navigation & Scroll Spy (5 Buttons)
+    const dockButtons = document.querySelectorAll('.app-bottom-dock .dock-btn');
+    if (dockButtons.length > 0) {
+        const trackedSections = [
+            { id: 'profile', btn: document.getElementById('dock-btn-profile') },
+            { id: 'work', btn: document.getElementById('dock-btn-work') },
+            { id: 'capabilities', btn: document.getElementById('dock-btn-capabilities') },
+            { id: 'experience', btn: document.getElementById('dock-btn-cv') },
+            { id: 'contact', btn: document.getElementById('dock-btn-contact') }
+        ];
+
+        // Smooth navigation click handler
+        dockButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetId = btn.getAttribute('data-target') || btn.getAttribute('href').replace('#', '');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    dockButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    targetEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll Spy to highlight the currently active section
+        const updateActiveDock = () => {
+            const scrollPos = window.scrollY + 200;
+            const isBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 120);
+            let currentActiveId = isBottom ? 'contact' : 'profile';
+
+            if (!isBottom) {
+                for (let i = trackedSections.length - 1; i >= 0; i--) {
+                    const item = trackedSections[i];
+                    const el = document.getElementById(item.id);
+                    if (el) {
+                        const elTop = el.offsetTop;
+                        if (scrollPos >= elTop) {
+                            currentActiveId = item.id;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            trackedSections.forEach(item => {
+                if (item.btn) {
+                    if (item.id === currentActiveId) {
+                        item.btn.classList.add('active');
+                    } else {
+                        item.btn.classList.remove('active');
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveDock, { passive: true });
+        // Initial run
+        updateActiveDock();
+    }
+
+});
+
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Brand Showcase — Rangga Portfolio</title>
+    <meta name="description" id="page-desc" content="Client project showcase and directed creative works by Gressandhy Rangga.">
+    
+    <!-- Physical CSS Separation: Desktop & Mobile isolated completely -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/desktop.css" media="(min-width: 992px)">
+    <link rel="stylesheet" href="css/mobile.css" media="(max-width: 991px)">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="brand-page-body">
+    <div class="custom-cursor"></div>
+
+    <!-- Navigation Header -->
+    <header class="brand-nav-header">
+        <div class="container brand-nav-container">
+            <a href="index.html#work" class="btn-brand-back" id="back-to-works" title="Back to All Works">
+                <i class="ph ph-arrow-left"></i>
+                <span>Back to Works</span>
+            </a>
+            <div class="brand-nav-actions">
+                <a href="index.html" class="btn-brand-nav-btn" title="Back to Home">
+                    <i class="ph ph-house"></i>
+                    <span>Home</span>
+                </a>
+                <a href="index.html#contact" class="btn-brand-contact" title="Inquire for Collaboration">
+                    <span>Inquire</span>
+                    <i class="ph ph-arrow-up-right"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container brand-showcase-container">
+        <!-- 1. Brand Profile & Overview Card -->
+        <section class="brand-profile-card fade-up visible">
+            <div class="brand-profile-header">
+                <div class="brand-logo-frame-lg">
+                    <img id="brand-logo" src="assets/images/KataKita/DESAIN LOGO KATA KITA.png" alt="Brand Logo">
+                </div>
+                <div class="brand-profile-info">
+                    <div class="brand-badge-strip">
+                        <span class="brand-field-badge" id="brand-industry">
+                            <i class="ph-fill ph-tag"></i> F&B / Hospitality
+                        </span>
+                        <span class="brand-verified-badge">
+                            <i class="ph-fill ph-seal-check"></i> Client Work
+                        </span>
+                    </div>
+                    <h1 id="brand-name">KataKita All Day Dining</h1>
+                    <p class="brand-tagline-text" id="brand-tagline">
+                        Modern Indonesian Culinary Staging, Artisan Coffee & Cafe Atmosphere Direction
+                    </p>
+                </div>
+            </div>
+
+            <!-- Field, Role & Timeline Chips -->
+            <div class="brand-meta-chips-row">
+                <div class="brand-meta-chip">
+                    <span class="meta-label">Industry & Domain</span>
+                    <strong id="brand-meta-field">Food & Beverage / Dining</strong>
+                </div>
+                <div class="brand-meta-chip">
+                    <span class="meta-label">Role & Leadership</span>
+                    <strong id="brand-role">Art Director & Lead Photographer</strong>
+                </div>
+                <div class="brand-meta-chip">
+                    <span class="meta-label">Timeline & Location</span>
+                    <strong id="brand-timeline-loc">2024 – 2025 • Yogyakarta</strong>
+                </div>
+            </div>
+
+            <!-- Brand Summary & Creative Direction Description -->
+            <div class="brand-description-box">
+                <p id="brand-desc">
+                    Translating culinary craftsmanship into deeply appetizing, warm-toned commercial food imagery.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. Curated Works Showcase -->
+        <section class="brand-works-section fade-up visible">
+            <div class="works-section-header">
+                <div>
+                    <span class="section-label-chip"><i class="ph-fill ph-camera"></i> Portfolio Showcase</span>
+                    <h2 class="works-heading">Curated Works & Visual Documentation</h2>
+                </div>
+                <span class="gallery-hint-pill">
+                    <i class="ph ph-magnifying-glass-plus"></i> Click any asset to expand
+                </span>
+            </div>
+
+            <!-- Grid Foto/Video Karya Brand -->
+            <div class="brand-works-grid" id="brand-works-grid">
+                <!-- Populated dynamically by JS -->
+            </div>
+        </section>
+
+        <!-- 3. Other Brands Switcher -->
+        <section class="brand-switcher-section fade-up visible">
+            <div class="switcher-header-row">
+                <div>
+                    <span class="section-label-chip"><i class="ph-fill ph-squares-four"></i> More Projects</span>
+                    <h3 class="switcher-title">Explore Other Brand Portfolios</h3>
+                </div>
+                <a href="index.html#work" class="btn-view-all-home">All Works on Main Page ↗</a>
+            </div>
+
+            <div class="brand-switch-grid" id="brand-switch-grid">
+                <!-- Populated dynamically by JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal untuk Melihat Foto & Video Ukuran Penuh -->
+    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog">
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <div class="lightbox-dialog">
+            <button class="lightbox-close-btn" id="lightbox-close" aria-label="Tutup Tampilan">
+                <i class="ph ph-x"></i>
+            </button>
+            <div class="lightbox-img-frame lightbox-media-frame" id="lightbox-media-frame">
+                <img id="lightbox-img" src="" alt="Fullscreen Work">
+                <video id="lightbox-video" controls playsinline style="display: none;"></video>
+                <iframe id="lightbox-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
+            </div>
+            <div class="lightbox-caption">
+                <strong id="lightbox-title">Photo Title</strong>
+                <span id="lightbox-subtitle">Caption details</span>
+                <div id="lightbox-external-cta"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="brand-page-footer">
+        <div class="container footer-bottom-bar">
+            <div class="footer-copy">
+                <span>© 2026 Rangga. All rights reserved.</span>
+                <span class="footer-dot">•</span>
+                <span>Art Director & Creative Leader</span>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/brand.js"></script>
+</body>
+</html>

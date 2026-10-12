@@ -1,0 +1,283 @@
+RANGGA
+ART DIRECTOR& CREATIVE LEADER
+PRODUCT REQUIREMENTS DOCUMENT
+SHOW THE WORK.  EXPLAIN THE THINKING.  PROVE THE LEADERSHIP.
+Version 1.0  |  October 2026
+1. Executive Summary
+Website ini adalah personal professional profile yang menggabungkan portfolio, CV, creative leadership profile, case studies, achievements, dan contact information. Tujuan utamanya bukan menampilkan Rangga sebagai fotografer semata, tetapi memosisikan Rangga sebagai Art Director dan Creative Leader yang mampu mengarahkan konsep, memimpin tim, mengelola proses kreatif, dan memastikan kualitas eksekusi.
+Portfolio fotografi utama akan diarahkan ke Instagram @pada.creative, sedangkan karya video akan ditampilkan melalui link YouTube pada project/case study terkait.
+2. Product Positioning
+Primary identity:
+ART DIRECTOR
+Secondary identity:
+CREATIVE LEADER
+Supporting capabilities:
+Creative Direction
+Team Leadership
+Visual Strategy
+Photography
+Videography
+Creative Production
+Brand & Communication
+AI & Emerging Technology
+3. Core Problem
+Portfolio kreatif konvensional cenderung hanya menunjukkan output visual. Untuk target Art Director, Creative Lead, atau Creative Manager, website harus membuktikan lebih dari kemampuan eksekusi: cara berpikir, pengambilan keputusan, leadership, project management, dan impact.
+4. Objectives
+Membuat visitor memahami positioning profesional Rangga dalam kurang dari 10 detik.
+Menampilkan karya sebagai evidence of capability, bukan sekadar gallery.
+Membuktikan kemampuan creative direction dan team leadership.
+Menggabungkan portfolio dan CV dalam satu professional identity.
+Mendukung job application, freelance opportunity, consulting, dan creative collaboration.
+Menyediakan satu link utama untuk mengarahkan recruiter, client, dan collaborator.
+5. Target Audience
+Audience
+Yang Dicari
+CTA Utama
+Recruiter / HR
+Experience, CV, skills, professional profile
+Download CV / Contact
+Creative Director / Head of Creative
+Art direction, thinking, leadership, work
+View Case Studies
+Founder / Business Owner
+Problem solving, execution, leadership
+Contact / Work Together
+Client / Collaborator
+Capability, quality, relevant work
+View Work / Contact
+6. Information Architecture
+HOME → PROFILE → CAPABILITIES → SELECTED WORK → CASE STUDIES → LEADERSHIP → PROCESS → IMPACT → PROJECTS / VENTURES → EXPERIENCE → EDUCATION → TESTIMONIALS → CONTACT
+7. Homepage Requirements
+7.1 Hero
+Nama: RANGGA
+Headline: ART DIRECTOR / CREATIVE LEADER
+Supporting statement: creative direction, visual storytelling, team leadership, and multidisciplinary production.
+CTA: View Work + Download CV.
+Optional portrait: monochrome/editorial, tidak harus memenuhi seluruh layar.
+7.2 Profile / Executive Summary
+Short professional bio.
+Experience count, project count, brands/organizations, dan team/collaboration count jika data tersedia.
+Copy harus ringkas dan berorientasi pada professional value.
+7.3 Capabilities
+Creative Direction
+Team Leadership
+Visual Strategy
+Creative Production
+Brand & Communication
+AI & Emerging Technology
+7.4 Selected Work
+Gunakan editorial case-study layout, bukan gallery masonry yang dominan.
+Setiap project menampilkan hero visual, title, year, role, category, dan short description.
+Photography: arahkan ke Instagram @pada.creative.
+Video: gunakan embedded YouTube atau external YouTube link pada project terkait.
+8. Portfolio & Case Study Model
+Setiap project penting sebaiknya memiliki struktur:
+Context — project dan konteks bisnis/komunikasi.
+Challenge — masalah yang harus diselesaikan.
+Role — tanggung jawab Rangga secara spesifik.
+Creative Direction — konsep dan keputusan kreatif.
+Leadership — team, coordination, delegation, atau production management.
+Execution — bagaimana konsep diterjemahkan menjadi output.
+Result — outcome, metric, recognition, atau deliverables.
+Visual Evidence — foto, video, campaign assets, atau supporting material.
+Prinsip: jangan hanya mengatakan 'I photographed this project'. Tunjukkan scope, keputusan, collaboration, dan outcome yang membuktikan level Art Director/Creative Leader.
+9. Photography Integration
+Primary photography portfolio:
+Instagram — @pada.creative  |  https://www.instagram.com/pada.creative/
+Website tidak perlu menduplikasi seluruh gallery Instagram. Gunakan website untuk curated work dan case study; Instagram menjadi living gallery untuk portfolio fotografi.
+Homepage: tampilkan beberapa selected photography images.
+Selected Work: gunakan curated images untuk memperkuat case study.
+CTA: 'View Photography' → Instagram @pada.creative.
+Optimasi gambar untuk web agar portfolio tetap cepat.
+10. Video Integration
+Video portfolio akan disediakan sebagai link YouTube pada project yang relevan. URL YouTube dapat ditambahkan kemudian ketika content final sudah dipilih.
+Gunakan YouTube embed hanya pada case study yang membutuhkan video.
+Sediakan thumbnail yang konsisten dengan visual identity website.
+Jangan autoplay video dengan suara.
+Sediakan external link 'Watch on YouTube'.
+11. Leadership Section
+Section ini adalah differentiator utama website.
+Creative Direction — concept development, visual direction, briefing, quality control.
+Team Leadership — delegation, coordination, mentoring, feedback, conflict handling.
+Project Management — timeline, resource allocation, production planning, delivery.
+Cross-functional Collaboration — marketing, product, founders, developers, vendors, production crew.
+11.1 How I Lead
+DEFINE → ALIGN → DIRECT → EMPOWER → EXECUTE → REVIEW
+Setiap tahap diberi penjelasan singkat untuk menunjukkan leadership philosophy tanpa membuat website terasa seperti resume korporat.
+12. Creative Process
+BRIEF → RESEARCH → CONCEPT → ART DIRECTION → PRODUCTION → POST → DELIVERY → EVALUATION
+Process section menunjukkan cara berpikir dan workflow, sehingga visitor dapat menilai kemampuan strategis, bukan hanya hasil visual.
+13. Impact & Achievements
+Jumlah project/campaign.
+Jumlah brand/organization.
+Jumlah collaborator/team jika dapat dihitung secara akurat.
+Projects launched.
+Hackathons / competitions.
+Leadership milestones.
+Publications / recognition.
+Community contributions.
+Semua angka harus berbasis data nyata; hindari vanity metrics yang tidak dapat diverifikasi.
+14. Ventures / Things I've Built
+Gunakan section ini untuk menunjukkan entrepreneurial dan product thinking. Contoh yang dapat ditampilkan: ChainVolio, OddsDraft, dan eksperimen AI/technology lainnya.
+Positioning yang ingin dibangun: Rangga bukan hanya menerima dan mengerjakan brief, tetapi juga mampu membangun konsep, produk, workflow, dan solusi.
+15. Creative × Technology
+PHOTOGRAPHY × DESIGN × AI × WEB3 × PRODUCT
+Section singkat untuk menunjukkan eksplorasi teknologi dan kemampuan multidisciplinary tanpa menggeser positioning utama dari creative leadership.
+16. Experience / CV
+Experience ditampilkan sebagai editorial timeline. Setiap posisi memuat company, title, period, scope, dan selected achievements.
+CTA global: Download CV PDF.
+17. Education
+Master — Development Communication, Universitas Gadjah Mada (UGM).
+Bachelor — Photography, Institut Seni Indonesia (ISI).
+18. Testimonials
+Opsional untuk V1. Jika tersedia, gunakan 3–5 testimonial pendek dari client, founder, creative director, producer, atau collaborator. Fokus pada leadership, creative thinking, dan execution.
+19. Contact
+Headline: LET'S WORK TOGETHER.
+Creative Leadership
+Art Direction
+Creative Projects
+Strategic Collaboration
+Email
+LinkedIn
+Instagram
+20. Visual Design System
+Design direction: minimalist editorial + contemporary art direction.
+Token
+Value
+Usage
+Milk White
+#F4F1EA
+Primary light background
+White
+#FFFFFF
+Secondary light surface
+Charcoal
+#171717
+Primary dark background
+Dark Grey
+#292929
+Secondary dark surface
+Soft Grey
+#777777
+Secondary text
+Black
+#080808
+Strongest typography/contrast
+21. Typography
+Recommended: editorial serif display + clean sans-serif body.
+Display candidates: Instrument Serif / Cormorant Garamond.
+Body candidates: Inter / Geist / similar neutral grotesk.
+Maximum 2 font families.
+Large typography, generous whitespace, restrained hierarchy.
+22. Layout & Art Direction
+12-column desktop grid.
+Max content width approximately 1280–1440px.
+1px borders and minimal corner radius.
+No excessive shadows.
+No gradients or glassmorphism.
+Large negative space.
+Asymmetrical/editorial compositions are encouraged.
+Photography should feel curated and art-directed, not like an image dump.
+23. Motion Design
+Subtle page-load typography reveal.
+Image hover zoom approximately 1.00 → 1.03.
+Optional custom cursor.
+Light parallax or image reveal on scroll.
+Respect prefers-reduced-motion.
+Motion should reinforce art direction, not become a gimmick.
+24. Responsive Requirements
+Desktop: primary experience.
+Tablet: 12-column grid reduced to approximately 6 columns.
+Mobile: single-column layout with simplified navigation.
+Large hero typography must remain responsive.
+Images use responsive sources and lazy loading.
+25. Functional Requirements
+View professional profile.
+View selected work.
+Open detailed case studies.
+View leadership and process sections.
+View experience and education.
+Download CV PDF.
+Open Instagram @pada.creative.
+Open/embedded YouTube videos.
+Contact via email/social links.
+Responsive across desktop, tablet, mobile.
+SEO metadata and social sharing metadata.
+26. Technical / Performance Requirements
+Target Lighthouse Performance: 90+ where practical.
+Use WebP/AVIF for images.
+Lazy-load non-critical images.
+Use responsive image sizes.
+Avoid unnecessary JavaScript.
+Video should not autoplay with sound.
+Optimize fonts and minimize font weights.
+27. SEO
+Title: Rangga — Art Director & Creative Leader
+Description: Rangga is an Art Director and Creative Leader working across creative direction, visual communication, photography, production, and emerging technology.
+Use semantic headings and descriptive image alt text.
+Create Open Graph image for LinkedIn/WhatsApp/social sharing.
+Use structured metadata where appropriate.
+28. Analytics
+Page views.
+Project/case study views.
+CV downloads.
+Email clicks.
+LinkedIn clicks.
+Instagram clicks.
+YouTube clicks.
+29. Success Criteria
+Visitor memahami 'Rangga = Art Director / Creative Leader' dalam <10 detik.
+Visitor dapat menemukan selected work tanpa friction.
+Visitor dapat melihat bukti leadership, bukan hanya visual output.
+Recruiter dapat menemukan CV dan experience dengan cepat.
+Potential client dapat memahami capability dan cara kerja.
+Website terasa seperti personal brand seorang senior creative, bukan template portfolio fotografer.
+30. V1 Scope
+Priority
+Scope
+MUST HAVE
+Hero, About, Capabilities, Selected Work, 3–5 Case Studies, Leadership, Creative Process, Impact/Achievements, Experience, Education, CV download, Contact.
+SHOULD HAVE
+Testimonials, Ventures/Projects, Creative × Technology, Instagram integration, YouTube links/embeds.
+NICE TO HAVE
+Custom cursor, advanced scroll animation, interactive timeline.
+V2
+CMS, articles, speaking/workshops, availability status, advanced project metrics, client portal.
+31. Content Model
+Project object:
+title
+year
+client / organization
+role
+category
+short_description
+challenge
+creative_direction
+leadership
+execution
+result
+images
+youtube_url (optional)
+external_url (optional)
+Photography external URL default: https://www.instagram.com/pada.creative/ . YouTube URLs akan ditambahkan per project setelah daftar video final tersedia.
+32. Recommended Navigation
+Desktop:
+RANGGA     WORK     ABOUT     LEADERSHIP     EXPERIENCE     CONTACT
+Alternative minimal navigation:
+RANGGA     WORK     ABOUT     CONTACT
+33. Core UX Principle
+WHO YOU ARE → WHAT YOU CAN LEAD → HOW YOU THINK → WHAT YOU'VE ACHIEVED → WHAT YOU CAN BRING
+Website harus terasa seperti professional identity system. Portfolio adalah bukti, case study menjelaskan cara berpikir, leadership section membuktikan managerial capability, dan CV menjadi supporting document.
+34. Next Content Needed
+Final professional bio (short + extended).
+Accurate years of experience.
+List of companies/clients and employment periods.
+3–5 strongest case studies.
+Role and contribution for each case study.
+Leadership/team examples.
+Achievements and measurable outcomes.
+Final CV PDF.
+Selected photography images from @pada.creative.
+Selected YouTube videos and URLs.
+2–5 professional testimonials if available.
+Final email and social links.

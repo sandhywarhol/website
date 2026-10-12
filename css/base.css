@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --color-milk-white: #F4F1EA;
+  --color-white: #FFFFFF;
+  --color-charcoal: #171717;
+  --color-dark-grey: #292929;
+  --color-soft-grey: #777777;
+  --color-black: #080808;
+  --color-accent: #C25934;
+  --color-border-subtle: rgba(8, 8, 8, 0.12);
+
+  /* Typography - Apple Inspired Clean Minimalist Typography Stack */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layout & Standard Section Rhythm */
+  --max-width: 1440px;
+  --section-spacing: 5.5rem;              /* Standard gap between sections on desktop */
+  --section-spacing-mobile: 3.5rem;       /* Standard gap between sections on mobile */
+  --section-header-mb: 2.75rem;           /* Distance from section header to section content */
+  --section-header-mb-mobile: 1.75rem;
+  --card-padding: 2.5rem;                 /* Standard card inner padding desktop */
+  --card-padding-mobile: 1.5rem;          /* Standard card inner padding mobile */
+  --card-radius: 28px;
+  --card-radius-mobile: 20px;
+  --grid-gap: 24px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-milk-white);
+  color: var(--color-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* Custom cursor */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Typography Scale & Standard Hierarchy (Apple Minimalist Aesthetics) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--color-black);
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h3 { font-size: clamp(1.35rem, 3vw, 2.25rem); }
+h4 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+p {
+  color: var(--color-dark-grey);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 65ch;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+}
+.custom-cursor.hover {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-white);
+}
+
+/* Layout System */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: clamp(1.25rem, 4%, 3rem);
+  padding-right: clamp(1.25rem, 4%, 3rem);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Standardized Section Padding Across Entire Website */
+section, section.container {
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
+}
+
+/* Standardized Section Header with Harmonious Tinted Background */
+.section-header {
+  grid-column: 1 / -1;
+  background: #ECE8DD;
+  border: 1px solid rgba(8, 8, 8, 0.08);
+  border-radius: 20px;
+  padding: 1.15rem 1.65rem;
+  margin-bottom: var(--section-header-mb);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #171717;
+  background: #FFFFFF;
+  padding: 0.35rem 0.95rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.section-tagline {
+  font-size: 0.92rem;
+  color: #555555;
+  font-weight: 500;
+}
+
+.section-header .btn-secondary {
+  background-color: var(--color-charcoal);
+  color: var(--color-milk-white);
+  border: 1px solid var(--color-charcoal);
+  padding: 0.6rem 1.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: none;
+}
+.section-header .btn-secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  opacity: 1;
+}
+
+
+/* Fade-Up Animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
