@@ -17,10 +17,10 @@
 
   /* Layout & Standard Section Rhythm */
   --max-width: 1440px;
-  --section-spacing: 5.5rem;              /* Standard gap between sections on desktop */
-  --section-spacing-mobile: 3.5rem;       /* Standard gap between sections on mobile */
-  --section-header-mb: 2.75rem;           /* Distance from section header to section content */
-  --section-header-mb-mobile: 1.75rem;
+  --section-spacing: 2.85rem;              /* Standard gap between sections on desktop */
+  --section-spacing-mobile: 1.75rem;       /* Standard gap between sections on mobile */
+  --section-header-mb: 1.65rem;           /* Distance from section header to section content */
+  --section-header-mb-mobile: 1.15rem;
   --card-padding: 2.5rem;                 /* Standard card inner padding desktop */
   --card-padding-mobile: 1.5rem;          /* Standard card inner padding mobile */
   --card-radius: 28px;
