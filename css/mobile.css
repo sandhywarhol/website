@@ -142,7 +142,9 @@
   opacity: 1;
 }
 
-.hero-agency-badge img {
+.hero-agency-badge img,
+.hero-signature-badge img,
+.hero-avatar-badge img {
   height: 22px;
   width: auto;
   max-width: 95px;
@@ -2540,6 +2542,18 @@
   color: var(--color-accent);
   border: 1px solid rgba(194, 89, 52, 0.2);
   box-shadow: 0 4px 14px rgba(194, 89, 52, 0.1);
+}
+.achievement-icon.logo {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.achievement-icon.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
 }
 .achievement-card:hover .achievement-icon {
   transform: scale(1.1) rotate(-4deg);
@@ -5012,3 +5026,222 @@ body {
 
 
 
+
+/* ==========================================================================
+   Mobile: CV/portfolio messaging, Open-to-Work avatar frame, compact experience rows
+   ========================================================================== */
+.d-only { display: none !important; }
+
+/* Experience: logo left, title + period on the right, description full width */
+.experience-item-with-logo {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.2rem;
+  align-items: start;
+}
+.experience-item-with-logo .experience-details,
+.experience-item-with-logo .exp-top-row {
+  display: contents;
+}
+.experience-item-with-logo .exp-brand-badge {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 52px;
+  height: 52px;
+  margin-top: 0;
+}
+.experience-item-with-logo .exp-top-row h3 {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+.experience-item-with-logo .exp-period {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  align-self: start;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.65rem;
+}
+.experience-item-with-logo .experience-role {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+.experience-item-with-logo .experience-desc {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  margin-top: 0.85rem;
+}
+
+/* LinkedIn-style Open to Work avatar frame */
+.pd-user-img-wrapper {
+  border: 5px solid #4C8C2B;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(76, 140, 43, 0.28);
+}
+.otw-frame-label {
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: 8%;
+  padding: 0.18rem 0;
+  background: #4C8C2B;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.2;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+.pd-otw-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  background: #EAF4E4;
+  color: #2F6B16;
+  border: 1px solid rgba(76, 140, 43, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+}
+.pd-about-seek {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  background: #EAF4E4;
+  border-radius: 14px;
+  color: #2F6B16;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.pd-about-seek i { margin-right: 0.25rem; }
+.cv-open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.95rem;
+  border-radius: 50px;
+}
+
+/* Managerial positioning (mobile) */
+.pd-role-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+.pd-role-chips span {
+  background: #F4F1EA;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #333;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+}
+.pd-lead-block {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+}
+.pd-lead-title {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+.pd-lead-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+.pd-lead-list li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+.pd-lead-list li > i {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #FFF4EE;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+.pd-lead-list strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #171717;
+  line-height: 1.3;
+}
+.pd-lead-list span {
+  display: block;
+  font-size: 0.78rem;
+  color: #666;
+  line-height: 1.45;
+}
+
+/* Mobile: pada.creative venture card — logo left, name right, details below */
+.pd-venture-card {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  column-gap: 0.9rem;
+  row-gap: 0.75rem;
+  align-items: center;
+}
+.pd-venture-info { display: contents; }
+.pd-venture-logo {
+  grid-column: 1;
+  grid-row: 1;
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  padding: 0.65rem;
+}
+.pd-venture-top {
+  grid-column: 2;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-bottom: 0;
+}
+.pd-venture-info > p,
+.pd-venture-tags,
+.pd-venture-ig {
+  grid-column: 1 / -1;
+}
+.pd-venture-info > p { margin: 0; }
+.pd-venture-tags { margin-bottom: 0; }
+.pd-venture-ig { justify-self: start; }
