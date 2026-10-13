@@ -439,6 +439,45 @@ section, section.container {
 }
 .pd-venture-ig:hover { background: var(--color-accent); transform: translateY(-2px); opacity: 1; }
 @media (max-width: 640px) {
-  .pd-venture-card { flex-direction: column; align-items: flex-start; }
-  .pd-venture-logo { width: 104px; height: 104px; }
+  .pd-venture-card {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.85rem;
+    align-items: center;
+  }
+  .pd-venture-info { display: contents; }
+  .pd-venture-logo {
+    grid-column: 1;
+    grid-row: 1;
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    padding: 0.45rem;
+  }
+  .pd-venture-top {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-bottom: 0;
+    min-width: 0;
+  }
+  .pd-venture-top h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #171717;
+  }
+  .pd-venture-badge {
+    font-size: 0.68rem;
+    padding: 0.18rem 0.55rem;
+    white-space: nowrap;
+  }
+  .pd-venture-info > p,
+  .pd-venture-tags,
+  .pd-venture-ig {
+    grid-column: 1 / -1;
+  }
 }
