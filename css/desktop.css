@@ -4521,8 +4521,11 @@ footer > .container {
 }
 .profile-dashboard,
 .app-screens-container {
-  width: 84%;
-  max-width: 1240px;
+  width: 84% !important;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
 }
 .app-screens-container {
   padding: 0 !important;
