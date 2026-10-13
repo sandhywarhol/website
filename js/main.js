@@ -1,21 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Custom Cursor
+    // Custom Cursor - Enhanced tracking and dynamic interaction
     const cursor = document.querySelector('.custom-cursor');
-    const links = document.querySelectorAll('a, button, .brand-partner-item, .contact-channel-row, .btn-contact-action, .app-module-card, .ct-mod-row, .lead-node');
-
     if (cursor) {
+        let isCursorVisible = false;
+
         document.addEventListener('mousemove', (e) => {
+            if (!isCursorVisible) {
+                cursor.classList.add('visible');
+                isCursorVisible = true;
+            }
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
 
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
+        document.addEventListener('mouseleave', () => {
+            cursor.classList.remove('visible');
+            isCursorVisible = false;
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.classList.add('visible');
+            isCursorVisible = true;
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('clicking');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('clicking');
+        });
+
+        // Dynamic event delegation for interactive elements
+        const interactiveSelector = 'a, button, [role="button"], input, select, textarea, .brand-partner-item, .contact-channel-row, .btn-contact-action, .app-module-card, .ct-mod-row, .lead-node, .pd-card, .mini-card, .contact-item, .cal-nav-btn, .cal-day, .dock-btn';
+        
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest(interactiveSelector)) {
                 cursor.classList.add('hover');
-            });
-            link.addEventListener('mouseleave', () => {
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest(interactiveSelector)) {
                 cursor.classList.remove('hover');
-            });
+            }
         });
     }
 

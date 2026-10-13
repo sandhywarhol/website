@@ -83,25 +83,68 @@ a:hover {
   opacity: 0.75;
 }
 
-/* Custom Cursor */
+/* Custom Cursor - High Visibility & Premium Aesthetic */
 .custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 16px;
-  height: 16px;
-  background-color: var(--color-black);
+  width: 32px;
+  height: 32px;
+  background-color: rgba(26, 29, 22, 0.08);
+  border: 2px solid #141712;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-  mix-blend-mode: difference;
+  transition: width 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+              height 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              transform 0.12s ease,
+              opacity 0.2s ease;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.95), 0 4px 14px rgba(0, 0, 0, 0.18);
+  opacity: 0;
 }
+
+/* Center Precision Dot */
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: #141712;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Visible state once mouse enters */
+.custom-cursor.visible {
+  opacity: 1;
+}
+
+/* Interactive Hover State */
 .custom-cursor.hover {
-  width: 48px;
-  height: 48px;
-  background-color: var(--color-white);
+  width: 52px;
+  height: 52px;
+  background-color: rgba(59, 71, 49, 0.18);
+  border-color: #2D3724;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.95), 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.custom-cursor.hover::after {
+  transform: translate(-50%, -50%) scale(1.35);
+  background-color: #3B4731;
+}
+
+/* Active / Clicking State */
+.custom-cursor.clicking {
+  transform: translate(-50%, -50%) scale(0.85);
+  background-color: rgba(26, 29, 22, 0.25);
 }
 
 /* Layout System */

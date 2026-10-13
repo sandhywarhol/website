@@ -689,17 +689,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7. Custom Cursor
     const cursor = document.querySelector('.custom-cursor');
-    const interactiveEls = document.querySelectorAll('a, button, .brand-work-card, .brand-switch-card');
-
     if (cursor) {
+        let isCursorVisible = false;
         document.addEventListener('mousemove', (e) => {
+            if (!isCursorVisible) {
+                cursor.classList.add('visible');
+                isCursorVisible = true;
+            }
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
+        document.addEventListener('mouseleave', () => {
+            cursor.classList.remove('visible');
+            isCursorVisible = false;
+        });
+        document.addEventListener('mouseenter', () => {
+            cursor.classList.add('visible');
+            isCursorVisible = true;
+        });
+        document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+        document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
 
-        interactiveEls.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('a, button, [role="button"], input, select, textarea, .brand-work-card, .brand-switch-card, .dock-btn')) {
+                cursor.classList.add('hover');
+            }
+        });
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('a, button, [role="button"], input, select, textarea, .brand-work-card, .brand-switch-card, .dock-btn')) {
+                cursor.classList.remove('hover');
+            }
         });
     }
 });
