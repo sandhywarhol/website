@@ -882,7 +882,7 @@
   letter-spacing: 0.02em;
 }
 
-/* Section 01: Capabilities — App-Style Modules */
+/* Section 01: Capabilities : App-Style Modules */
 .capabilities-list {
   grid-column: 1 / -1;
   display: grid;
@@ -2029,7 +2029,7 @@
 
 
 /* Section 05: Leadership & Process */
-/* Section 05: Leadership & Process — App Console Shell */
+/* Section 05: Leadership & Process : App Console Shell */
 .leadership-block, .process-block {
   grid-column: 1 / -1;
   background: var(--color-white);
@@ -5213,7 +5213,7 @@ body {
   line-height: 1.45;
 }
 
-/* Mobile: pada.creative venture card — logo left, name right, details below */
+/* Mobile: pada.creative venture card : logo left, name right, details below */
 .pd-venture-card {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);

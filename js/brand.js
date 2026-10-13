@@ -133,7 +133,7 @@ const BRAND_DATABASE = {
                 type: 'video',
                 videoType: 'local',
                 videoSrc: 'assets/images/Jasmine Group/lebaran.mp4',
-                title: 'Jasmine Festive Campaign — Lebaran Special',
+                title: 'Jasmine Festive Campaign, Lebaran Special',
                 meta: 'Festive Commercial TVC',
                 caption: 'Emotion-driven national festive commercial celebrating warm family togetherness and celebratory banquets.'
             },
@@ -141,7 +141,7 @@ const BRAND_DATABASE = {
                 type: 'video',
                 videoType: 'local',
                 videoSrc: 'assets/images/Jasmine Group/Video Dadakan.mp4',
-                title: 'Dynamic Commercial Reel — Fresh Flavors',
+                title: 'Dynamic Commercial Reel, Fresh Flavors',
                 meta: 'Dynamic Digital Spot',
                 caption: 'Punchy fast-paced product commercial designed for omni-channel digital rollout and high conversion.'
             },
@@ -259,7 +259,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/2g9Zw1QWEt4',
                 src: 'https://img.youtube.com/vi/2g9Zw1QWEt4/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/2g9Zw1QWEt4/hqdefault.jpg',
-                title: 'Startup Village Bali 2025 — Official Recap',
+                title: 'Startup Village Bali 2025, Official Recap',
                 meta: 'Main Event Aftermovie',
                 caption: 'The flagship cinematic recap summarizing the milestone Solana builder incubator and ecosystem gathering in Bali.'
             },
@@ -270,7 +270,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/5oo6MgMl1kk',
                 src: 'https://img.youtube.com/vi/5oo6MgMl1kk/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/5oo6MgMl1kk/hqdefault.jpg',
-                title: 'Startup Village Bali 2025 — Welcoming Dinner',
+                title: 'Startup Village Bali 2025, Welcoming Dinner',
                 meta: 'Ecosystem Gathering Reel',
                 caption: 'Intimate evening recap capturing the welcoming dinner and ecosystem convergence of Web3 founders and developers in Bali.'
             },
@@ -281,7 +281,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/7pbq7ERumQY',
                 src: 'https://img.youtube.com/vi/7pbq7ERumQY/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/7pbq7ERumQY/hqdefault.jpg',
-                title: 'Startup Village Bali 2025 — Arrival & Check-In',
+                title: 'Startup Village Bali 2025, Arrival & Check-In',
                 meta: 'Cinematic Vibe Teaser',
                 caption: 'Dynamic visual documentation welcoming international and local Solana builders arriving at Startup Village Bali.'
             },
@@ -292,7 +292,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/kMXIOfVeP00',
                 src: 'https://img.youtube.com/vi/kMXIOfVeP00/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/kMXIOfVeP00/hqdefault.jpg',
-                title: 'Startup Village Bali 2025 — HUT RI Celebration',
+                title: 'Startup Village Bali 2025, HUT RI Celebration',
                 meta: 'Community Culture Video',
                 caption: 'Energetic celebration blending Indonesian Independence Day festivities with the Web3 developer community.'
             },
@@ -303,7 +303,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/cr7QFfHrM90',
                 src: 'https://img.youtube.com/vi/cr7QFfHrM90/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/cr7QFfHrM90/hqdefault.jpg',
-                title: 'Startup Village Bali 2025 — Builder Activities',
+                title: 'Startup Village Bali 2025, Builder Activities',
                 meta: 'Hacker House Documentary',
                 caption: 'Fast-paced documentary capturing co-working sessions, developer mentorship, workshops, and intensive builder focus.'
             },
@@ -373,7 +373,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/bwRNE85IYzI',
                 src: 'https://img.youtube.com/vi/bwRNE85IYzI/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/bwRNE85IYzI/hqdefault.jpg',
-                title: 'VRTX — Jogja Titik 0 Kripto',
+                title: 'VRTX, Jogja Titik 0 Kripto',
                 meta: 'Event Direction & Motion',
                 caption: 'Dynamic event recap documenting the landmark crypto and blockchain convergence at Yogyakarta’s Zero Kilometer.'
             },
@@ -384,7 +384,7 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/L6G3SGZ9fGY',
                 src: 'https://img.youtube.com/vi/L6G3SGZ9fGY/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/L6G3SGZ9fGY/hqdefault.jpg',
-                title: 'Web3 University Tour — UNS Surakarta',
+                title: 'Web3 University Tour, UNS Surakarta',
                 meta: 'Academic Outreach Doc',
                 caption: 'Engaging campus tour documentary inspiring university students and faculty on decentralization fundamentals.'
             },
@@ -406,14 +406,14 @@ const BRAND_DATABASE = {
                 youtubeUrl: 'https://youtu.be/QfSd80kQE08',
                 src: 'https://img.youtube.com/vi/QfSd80kQE08/maxresdefault.jpg',
                 fallback: 'https://i.ytimg.com/vi/QfSd80kQE08/hqdefault.jpg',
-                title: 'Web3Recap — Pitch Colosseum Cypherpunk',
+                title: 'Web3Recap, Pitch Colosseum Cypherpunk',
                 meta: 'Competition & Demo Day',
                 caption: 'Pitch Colosseum Cypherpunk showcase featuring live developer pitches, judges evaluation, and project demos.'
             },
             {
                 type: 'photo',
                 src: 'assets/images/Obelisk/magz.jpg',
-                title: 'Web3 Recap Magazine — Print & Digital Edition',
+                title: 'Web3 Recap Magazine, Print & Digital Edition',
                 meta: 'Web3 Recap Cover Magazine',
                 caption: 'Physical publication spread, high-contrast cover design, and cryptographic editorial layout for Web3 Recap Magazine.'
             },
@@ -439,9 +439,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const brand = BRAND_DATABASE[brandId];
 
     // 2. Populate Page Title and Metadata
-    document.title = `${brand.name} — Rangga Portfolio`;
+    document.title = `${brand.name} | Rangga Portfolio`;
     const titleEl = document.getElementById('page-title');
-    if (titleEl) titleEl.textContent = `${brand.name} — Rangga Portfolio`;
+    if (titleEl) titleEl.textContent = `${brand.name} | Rangga Portfolio`;
 
     const nameEl = document.getElementById('brand-name');
     if (nameEl) nameEl.textContent = brand.name;
