@@ -1,4 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Hero scroll-zoom: progress 0..1 across the pinned track
+    const heroTrack = document.getElementById('hero-track');
+    const heroBg = document.querySelector('.hero-bg');
+    const heroFrame = document.querySelector('.hero-frame');
+    if (heroTrack && heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const heroDim = document.querySelector('.hero-dim');
+        const heroContent = document.querySelector('.hero-track .hero-container');
+        const heroReveal = document.querySelector('.hero-reveal');
+        const heroHint = document.querySelector('.hero-scroll-hint');
+        const revealItems = heroReveal ? [...heroReveal.children] : [];
+        const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+        const seg = (p, a, b) => clamp((p - a) / (b - a));
+        const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        const MAX_FRAME_SCALE = window.innerWidth < 992 ? 7 : 6;
+        const MAX_BG_SCALE = 1.12;
+        let ticking = false;
+
+        const updateHero = () => {
+            ticking = false;
+            const total = heroTrack.offsetHeight - window.innerHeight;
+            const p = clamp(-heroTrack.getBoundingClientRect().top / total);
+
+            // Zoom runs most of the track; dim and reveal follow it
+            // Leaf frame does the big zoom; the background only eases in slightly
+            const zoom = easeInOut(seg(p, 0, 0.8));
+            heroFrame.style.transform = `scale(${1 + (MAX_FRAME_SCALE - 1) * zoom})`;
+            heroFrame.style.opacity = (1 - seg(p, 0.7, 0.8)).toFixed(3);
+            heroBg.style.transform = `scale(${1 + (MAX_BG_SCALE - 1) * seg(p, 0, 0.9)})`;
+            heroDim.style.opacity = (0.55 * seg(p, 0.3, 0.65)).toFixed(3);
+
+            const out = seg(p, 0, 0.22);
+            heroContent.style.opacity = (1 - out).toFixed(3);
+            heroContent.style.transform = `translateY(${-40 * out}px) scale(${1 + 0.08 * out})`;
+            if (heroHint) heroHint.style.opacity = (1 - seg(p, 0, 0.08)).toFixed(3);
+
+            heroReveal.style.opacity = seg(p, 0.4, 0.45) > 0 ? '1' : '0';
+            heroReveal.style.pointerEvents = p > 0.6 ? 'auto' : 'none';
+            revealItems.forEach((el, i) => {
+                const t = easeInOut(seg(p, 0.45 + i * 0.07, 0.62 + i * 0.07));
+                el.style.opacity = t.toFixed(3);
+                el.style.transform = `translateY(${28 * (1 - t)}px)`;
+            });
+        };
+
+        const requestUpdate = () => {
+            if (!ticking) { ticking = true; requestAnimationFrame(updateHero); }
+        };
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate);
+        updateHero();
+    }
+
     // Custom Cursor - Enhanced tracking and dynamic interaction
     const cursor = document.querySelector('.custom-cursor');
     if (cursor) {

@@ -12,13 +12,21 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/desktop.css" media="(min-width: 992px)">
     <link rel="stylesheet" href="css/mobile.css" media="(max-width: 991px)">
+    <link rel="stylesheet" href="css/hero-zoom.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
     <div class="custom-cursor"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (scroll-driven zoom: tall track + pinned stage) -->
+    <div class="hero-track" id="hero-track">
     <section class="hero" id="about">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-dim" aria-hidden="true"></div>
+        <picture class="hero-frame" aria-hidden="true">
+            <source media="(max-width: 991px)" srcset="assets/images/frame-portrait.webp">
+            <img src="assets/images/frame-landscape.webp" alt="" decoding="async">
+        </picture>
         <!-- Floating Left Social Icons -->
         <div class="hero-socials">
             <a href="https://www.instagram.com/gressandhy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
@@ -55,7 +63,16 @@
                 <p class="hero-statement">Creative direction, visual storytelling, team leadership, and multidisciplinary production.</p>
             </div>
         </div>
+        <!-- Revealed after the zoom-in -->
+        <div class="hero-reveal" aria-live="polite">
+            <span class="hero-reveal-kicker">The Story</span>
+            <h2 class="hero-reveal-title">Every journey starts with a vision.</h2>
+            <p class="hero-reveal-text">Art Director and Creative Leader specializing in cinematic visual storytelling, commercial campaigns, and scalable brand identity systems, bridging high-fidelity craft with structured leadership and emerging technology.</p>
+        </div>
+
+        <div class="hero-scroll-hint" aria-hidden="true"><span>Scroll</span><i></i></div>
     </section>
+    </div>
 
     <!-- Dashboard Profile Section -->
     <section id="profile" class="profile-dashboard">
