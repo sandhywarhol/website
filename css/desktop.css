@@ -111,11 +111,11 @@
   color: #FFFFFF;
 }
 
-/* Top Right pada.creative Agency Logo Badge in Hero */
+/* Top Right pada.creative Agency Logo Badge in Hero (Hanging Label) */
 .hero-top-right {
   position: absolute;
-  top: clamp(1.5rem, 4vw, 2.75rem);
-  right: clamp(1.25rem, 5%, 2.75rem);
+  top: 0;
+  right: clamp(1.5rem, 5%, 3.5rem);
   z-index: 20;
 }
 
@@ -123,41 +123,71 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent !important;
+  background: #FFFFFF !important;
   border: none !important;
-  padding: 0 !important;
+  padding: 0.45rem 0.95rem 0.55rem !important;
+  border-radius: 0 0 9px 9px !important;
   text-decoration: none;
-  box-shadow: none !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .hero-agency-badge:hover {
-  background: transparent !important;
+  background: #FFFFFF !important;
   border: none !important;
-  transform: translateY(-2px) scale(1.06);
-  box-shadow: none !important;
+  transform: translateY(2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3) !important;
   opacity: 1;
 }
 
-.hero-agency-badge img,
-.hero-signature-badge img,
-.hero-avatar-badge img {
-  height: 26px;
+.hero-agency-badge img {
+  height: 20px;
   width: auto;
-  max-width: 110px;
+  max-width: 100px;
   object-fit: contain;
   display: block;
-  opacity: 0.92;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
-  transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  opacity: 1 !important;
+  filter: brightness(0) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .hero-agency-badge:hover img {
   opacity: 1;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.9));
+  filter: brightness(0) !important;
+}
+
+.hero-title-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.15rem;
+  width: 100%;
+}
+
+.hero-title-img {
+  width: 100%;
+  max-width: clamp(300px, 32vw, 460px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.45));
+  user-select: none;
+  -webkit-user-drag: none;
+  animation: heroTitleIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroTitleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .hero-container {
@@ -1909,9 +1939,16 @@
 .ventures-grid {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+  .ventures-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .venture-card {
@@ -1922,6 +1959,7 @@
   border: 1px solid rgba(0,0,0,0.035);
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 .venture-card:hover {
@@ -1933,18 +1971,21 @@
 .venture-image-container {
   position: relative;
   width: 100%;
+  height: 220px;
   aspect-ratio: 16 / 10;
   border-radius: 20px;
   overflow: hidden;
   background: #111419;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(0,0,0,0.06);
+  flex-shrink: 0;
 }
 .venture-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
+  display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .venture-card:hover .venture-image-container img {
@@ -1998,6 +2039,34 @@
   gap: 1rem;
   margin-bottom: 0.85rem;
 }
+.venture-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.venture-logo-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.venture-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+  transition: transform 0.3s ease;
+}
+.venture-card:hover .venture-logo-box img {
+  transform: scale(1.08);
+}
 .venture-category {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -2010,7 +2079,7 @@
 }
 .venture-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.4rem, 1.8vw, 1.85rem);
   font-weight: 600;
   color: var(--color-black);
   margin: 0;
@@ -4343,9 +4412,11 @@ body {
 }
 
 #profile,
-#work,
-#how-i-work,
 #capabilities,
+#work,
+#ventures,
+#impact,
+#how-i-work,
 #experience,
 #contact {
   scroll-margin-top: 4.5rem;
@@ -4371,7 +4442,16 @@ body {
   gap: 0.25rem;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
   user-select: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.app-bottom-dock.dock-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(40px);
 }
 
 .dock-btn {
@@ -4540,6 +4620,4 @@ footer > .container {
 
 /* Open-to-Work avatar ring label is a mobile-only visual */
 .otw-frame-label { display: none !important; }
-
-.pd-venture-group { grid-column: 1 / -1; grid-row: 3; }
 

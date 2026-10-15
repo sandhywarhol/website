@@ -425,6 +425,64 @@ const BRAND_DATABASE = {
                 caption: 'Official avant-garde publication cover artwork and editorial brand typography for Web3 Recap Magazine.'
             }
         ]
+    },
+    'chainvolio': {
+        id: 'chainvolio',
+        name: 'ChainVolio',
+        industry: 'Web3 & AI Technology / Solana Ecosystem',
+        field: 'On-Chain Identity & Verifiable Portfolio Platform',
+        tagline: 'Decentralized Verifiable Resume & Builder Credential Protocol',
+        logo: 'assets/logo-chainvolio.png',
+        folderName: 'ChainVolio',
+        role: 'Co-Founder, Lead Product & UI/UX Architect',
+        timeline: '2025 – Present',
+        location: 'Global (Solana Ecosystem)',
+        desc: 'ChainVolio is a decentralized, verifiable resume and on-chain credential portfolio protocol built for the next generation of Web3 builders. Rangga directed the comprehensive product architecture, user experience design system, and visual brand identity—translating complex cryptographic proofs into a sleek, creator-first digital identity interface.',
+        gallery: [
+            {
+                type: 'photo',
+                src: 'assets/images/chainvolio.png',
+                title: 'ChainVolio Live Web3 Platform Interface',
+                meta: 'Platform UI/UX & Web Architecture',
+                caption: 'Minimalist on-chain credential and verifiable project resume dashboard on the Solana network.'
+            },
+            {
+                type: 'photo',
+                src: 'assets/logo-chainvolio.png',
+                title: 'ChainVolio Geometric Identity Emblem',
+                meta: 'Brand Identity Design',
+                caption: 'Master geometric icon symbolizing interlinked cryptographic nodes and blooming decentralized builder connectivity.'
+            }
+        ]
+    },
+    'oddsdraft': {
+        id: 'oddsdraft',
+        name: 'OddsDraft',
+        industry: 'SportsTech & Prediction Markets',
+        field: 'Gamified Sports Predictions & Fantasy Football',
+        tagline: 'Predictive Fantasy Football Experience Fusing Sports Passion with Gamified Markets',
+        logo: 'assets/logo-oddsdraft.png',
+        folderName: 'OddsDraft',
+        role: 'Co-Founder & Creative Director',
+        timeline: '2024 – Present',
+        location: 'Global',
+        desc: 'OddsDraft is a high-octane predictive fantasy football platform that fuses traditional sports enthusiasm with gamified prediction mechanics. Rangga directed the visual branding, game design aesthetics, and intuitive real-time match visualization interface for mobile-first sports enthusiasts.',
+        gallery: [
+            {
+                type: 'photo',
+                src: 'assets/images/oddsdraft.png',
+                title: 'OddsDraft Prediction Experience & Match Center',
+                meta: 'Game UI & Mobile-First UX',
+                caption: 'Dynamic match prediction interface featuring real-time statistical odds, leaderboard tracking, and gamified mechanics.'
+            },
+            {
+                type: 'photo',
+                src: 'assets/logo-oddsdraft.png',
+                title: 'OddsDraft Official Master Insignia',
+                meta: 'Brand Identity & Stadium Iconography',
+                caption: 'Official 3D circular emblem with metallic sports crest styling, illuminated football arena lighting, and kinetic lettering.'
+            }
+        ]
     }
 };
 

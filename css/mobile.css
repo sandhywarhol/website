@@ -111,11 +111,11 @@
   color: #FFFFFF;
 }
 
-/* Top Right pada.creative Agency Logo Badge in Hero */
+/* Top Right pada.creative Agency Logo Badge in Hero (Hanging Label) */
 .hero-top-right {
   position: absolute;
-  top: clamp(1.5rem, 4vw, 2.75rem);
-  right: clamp(1.25rem, 5%, 2.75rem);
+  top: 0;
+  right: clamp(1rem, 4vw, 1.75rem);
   z-index: 20;
 }
 
@@ -123,41 +123,60 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent !important;
+  background: #FFFFFF !important;
   border: none !important;
-  padding: 0 !important;
+  padding: 0.28rem 0.65rem 0.38rem !important;
+  border-radius: 0 0 6px 6px !important;
   text-decoration: none;
-  box-shadow: none !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .hero-agency-badge:hover {
-  background: transparent !important;
+  background: #FFFFFF !important;
   border: none !important;
-  transform: translateY(-2px) scale(1.06);
-  box-shadow: none !important;
+  transform: translateY(2px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28) !important;
   opacity: 1;
 }
 
-.hero-agency-badge img,
-.hero-signature-badge img,
-.hero-avatar-badge img {
-  height: 22px;
+.hero-agency-badge img {
+  height: 13px;
   width: auto;
-  max-width: 95px;
+  max-width: 68px;
   object-fit: contain;
   display: block;
-  opacity: 0.92;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
-  transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+  opacity: 1 !important;
+  filter: brightness(0) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .hero-agency-badge:hover img {
   opacity: 1;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.9));
+  filter: brightness(0) !important;
+}
+
+/* Hero Title Graphic Asset */
+.hero-title-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.15rem;
+  width: 100%;
+}
+
+.hero-title-img {
+  width: 100%;
+  max-width: clamp(210px, 68vw, 290px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.45));
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .hero-container {
@@ -181,7 +200,7 @@
 /* Headline Composition Matching Reference */
 .hero-title {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(2.35rem, 6.5vw, 4.25rem);
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
   line-height: 1.22;
   font-weight: 800;
   color: #FFFFFF;
@@ -1865,8 +1884,8 @@
 .ventures-grid {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -1900,7 +1919,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
+  display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .venture-card:hover .venture-image-container img {
@@ -1953,6 +1973,30 @@
   align-items: flex-start;
   gap: 1rem;
   margin-bottom: 0.85rem;
+}
+.venture-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.venture-logo-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.venture-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
 }
 .venture-category {
   font-family: var(--font-body);
@@ -3133,6 +3177,15 @@ footer .section-tagline {
     --grid-gap: 1.25rem;
   }
 
+  /* Snappy mobile scroll animations */
+  .fade-up {
+    transform: translateY(20px);
+    transition-duration: 0.55s;
+  }
+  .fade-up.visible {
+    transform: translateY(0);
+  }
+
   body {
     cursor: auto;
   }
@@ -3190,13 +3243,13 @@ footer .section-tagline {
     font-size: 1.15rem;
   }
   .hero-title {
-    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    font-size: clamp(1.5rem, 5.8vw, 2rem);
     line-height: 1.22;
     margin-bottom: 1rem;
     gap: 0.25rem;
   }
   .pill-badge {
-    padding: 0.08em 0.5em;
+    padding: 0.06em 0.48em;
   }
   .hero-statement {
     font-size: 0.85rem;
@@ -3525,7 +3578,21 @@ footer .section-tagline {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.4rem;
+    font-size: clamp(1.3rem, 5.6vw, 1.65rem);
+    line-height: 1.22;
+    margin-bottom: 0.85rem;
+    gap: 0.2rem;
+  }
+  .hero-title-img {
+    max-width: clamp(190px, 62vw, 250px);
+  }
+  .pill-badge {
+    padding: 0.04em 0.44em;
+  }
+  .hero-statement {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    max-width: 290px;
   }
   .pd-countdown {
     padding: 0.75rem 0.5rem;
@@ -4877,9 +4944,11 @@ body {
 }
 
 #profile,
-#work,
-#how-i-work,
 #capabilities,
+#work,
+#ventures,
+#impact,
+#how-i-work,
 #experience,
 #contact {
   scroll-margin-top: 4.5rem;
@@ -4902,7 +4971,16 @@ body {
   gap: 0.25rem;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03);
   user-select: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.app-bottom-dock.dock-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(45px);
 }
 
 .dock-btn {

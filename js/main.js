@@ -126,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Animations (Fade up)
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: '0px 0px -30px 0px',
+        threshold: 0.05
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -309,12 +309,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // App-Style Floating Bottom Dock Navigation & Scroll Spy (5 Buttons)
+    const dockNav = document.getElementById('app-bottom-dock') || document.querySelector('.app-bottom-dock');
     const dockButtons = document.querySelectorAll('.app-bottom-dock .dock-btn');
+    const profileSection = document.getElementById('profile');
+
+    // Toggle Dock Visibility: Hidden in hero, visible when scrolled to profile section or below
+    const updateDockVisibility = () => {
+        if (!dockNav || !profileSection) return;
+        const rect = profileSection.getBoundingClientRect();
+        // Visible when profile section top is entering viewport (within 80% of window height)
+        if (rect.top <= window.innerHeight * 0.8) {
+            dockNav.classList.remove('dock-hidden');
+        } else {
+            dockNav.classList.add('dock-hidden');
+        }
+    };
+
     if (dockButtons.length > 0) {
         const trackedSections = [
             { id: 'profile', btn: document.getElementById('dock-btn-profile') },
-            { id: 'work', btn: document.getElementById('dock-btn-work') },
             { id: 'capabilities', btn: document.getElementById('dock-btn-capabilities') },
+            { id: 'work', btn: document.getElementById('dock-btn-work') },
             { id: 'experience', btn: document.getElementById('dock-btn-cv') },
             { id: 'contact', btn: document.getElementById('dock-btn-contact') }
         ];
@@ -364,9 +379,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        window.addEventListener('scroll', updateActiveDock, { passive: true });
+        const handleDockScroll = () => {
+            updateDockVisibility();
+            updateActiveDock();
+        };
+
+        window.addEventListener('scroll', handleDockScroll, { passive: true });
+        window.addEventListener('resize', updateDockVisibility);
+
         // Initial run
+        updateDockVisibility();
         updateActiveDock();
+    } else if (dockNav && profileSection) {
+        window.addEventListener('scroll', updateDockVisibility, { passive: true });
+        window.addEventListener('resize', updateDockVisibility);
+        updateDockVisibility();
     }
 
 });
