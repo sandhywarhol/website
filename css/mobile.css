@@ -3186,6 +3186,16 @@ footer .section-tagline {
     transform: translateY(0);
   }
 
+  .anim-lift-left, .anim-lift-right, .anim-lift-center,
+  .anim-slide-left, .anim-slide-right {
+    transform: translate3d(0, 20px, 0);
+    transition-duration: 0.55s;
+  }
+  .anim-lift-left.visible, .anim-lift-right.visible, .anim-lift-center.visible,
+  .anim-slide-left.visible, .anim-slide-right.visible {
+    transform: translate3d(0, 0, 0);
+  }
+
   body {
     cursor: auto;
   }

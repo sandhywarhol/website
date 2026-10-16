@@ -18,6 +18,34 @@
 <body>
     <div class="custom-cursor"></div>
 
+    <!-- The Goonies-Style Cinematic Preloader: Milk-white stage with black curtain rising from bottom -->
+    <div class="site-preloader" id="site-preloader" aria-label="Loading portfolio experience">
+        <div class="preloader-curtain" id="preloader-curtain">
+            <div class="preloader-inner">
+                <div class="preloader-status">
+                    <span class="preloader-brand">Loading</span>
+                    <div class="preloader-pulse">
+                        <span class="pulse-beacon"></span>
+                        <span class="pulse-core"></span>
+                    </div>
+                </div>
+
+                <div class="preloader-counter-wrap">
+                    <span class="preloader-number" id="preloader-number">1</span>
+                    <span class="preloader-percent">%</span>
+                </div>
+
+                <div class="preloader-bar-track">
+                    <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+                </div>
+
+                <div class="preloader-meta">
+                    <span class="preloader-role">GRESSANDHY RANGGA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section (scroll-driven zoom: tall track + pinned stage) -->
     <div class="hero-track" id="hero-track">
     <section class="hero" id="about">
@@ -71,8 +99,8 @@
         <div class="pd-header fade-up">
             <h2>CV & Profile</h2>
             <div class="pd-icons">
-                <i class="ph ph-bell"></i>
-                <i class="ph ph-gear"></i>
+                <i class="ph ph-bell living-bell" title="Alerts & Opportunities"></i>
+                <i class="ph ph-gear living-gear" title="Settings & Architecture"></i>
             </div>
         </div>
         
@@ -152,7 +180,7 @@
                 </div>
                 <div class="pd-edu-list">
                     <!-- Master Degree (UGM) -->
-                    <div class="pd-edu-card pd-card fade-up fade-delay-1">
+                    <div class="pd-edu-card pd-card anim-slide-left fade-delay-1">
                         <div class="pd-edu-header">
                             <div class="pd-edu-logo">
                                 <img src="assets/images.jfif" alt="Universitas Gadjah Mada (UGM) Logo" loading="lazy" onerror="this.src='assets/logo-ugm.png'">
@@ -176,7 +204,7 @@
                     </div>
 
                     <!-- Bachelor Degree (ISI Yogyakarta) -->
-                    <div class="pd-edu-card pd-card fade-up fade-delay-2">
+                    <div class="pd-edu-card pd-card anim-slide-right fade-delay-2">
                         <div class="pd-edu-header">
                             <div class="pd-edu-logo">
                                 <img src="assets/Logo-ISI-Yogyakarta1.webp" alt="Institut Seni Indonesia (ISI) Yogyakarta Logo" loading="lazy" onerror="this.src='assets/logo-isi.png'">
@@ -208,13 +236,13 @@
                     <i class="ph ph-dots-three"></i>
                 </div>
                 <div class="pd-tags">
-                    <span class="pd-tag">Strategic Direction</span>
-                    <span class="pd-tag">Creative Direction</span>
-                    <span class="pd-tag">Brand Strategy</span>
-                    <span class="pd-tag">Photography</span>
-                    <span class="pd-tag">Visual Strategy</span>
-                    <span class="pd-tag">Leadership</span>
-                    <span class="pd-tag">AI & Web3</span>
+                    <span class="pd-tag pop-in-tag">Strategic Direction</span>
+                    <span class="pd-tag pop-in-tag">Creative Direction</span>
+                    <span class="pd-tag pop-in-tag">Brand Strategy</span>
+                    <span class="pd-tag pop-in-tag">Photography</span>
+                    <span class="pd-tag pop-in-tag">Visual Strategy</span>
+                    <span class="pd-tag pop-in-tag">Leadership</span>
+                    <span class="pd-tag pop-in-tag">AI & Web3</span>
                 </div>
             </div>
         </div>
@@ -238,10 +266,12 @@
             <div class="stats-card">
                 <div class="chart-container">
                     <svg viewBox="0 0 200 80" class="chart-svg">
-                        <path d="M 0 50 Q 20 70, 40 50 T 80 40 T 120 60 T 160 30 T 200 40" fill="none" stroke="#3B4731" stroke-width="3"/>
-                        <circle cx="100" cy="50" r="6" fill="#3B4731"/>
-                        <rect x="85" y="15" width="30" height="20" rx="4" fill="#3B4731"/>
-                        <text x="100" y="28" fill="#FFF" font-size="10" font-weight="bold" text-anchor="middle">2%</text>
+                        <path class="chart-path-living" d="M 0 50 Q 20 70, 40 50 T 80 40 T 120 60 T 160 30 T 200 40" fill="none" stroke="#3B4731" stroke-width="3"/>
+                        <g class="chart-pin-living">
+                            <circle cx="100" cy="50" r="6" fill="#3B4731"/>
+                            <rect x="85" y="15" width="30" height="20" rx="4" fill="#3B4731"/>
+                            <text x="100" y="28" fill="#FFF" font-size="10" font-weight="bold" text-anchor="middle">2%</text>
+                        </g>
                     </svg>
                     <div class="chart-labels">
                         <span>Jun</span><span>Jul</span><span class="active">August</span><span>Sep</span><span>Oct</span>
@@ -275,7 +305,7 @@
                     <i class="ph ph-caret-right"></i>
                 </a>
                 <a href="https://wa.me/6282193333831" target="_blank" rel="noopener noreferrer" class="contact-item active-contact">
-                    <div class="contact-icon bg-green"><i class="ph-fill ph-whatsapp-logo"></i></div>
+                    <div class="contact-icon bg-green radar-active-contact"><i class="ph-fill ph-whatsapp-logo"></i></div>
                     <div class="contact-details">
                         <h4>WhatsApp</h4>
                         <p>+62 821 9333 3831</p>
@@ -354,7 +384,7 @@
             <!-- Capabilities Modules (App-Style Console) -->
             <div class="capabilities-list">
                 <!-- 1. Creative Direction -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-left">
                     <div class="cap-card-top">
                         <div class="cap-icon-box orange">
                             <i class="ph-fill ph-lightbulb"></i>
@@ -371,7 +401,7 @@
                 </div>
 
                 <!-- 2. Team Leadership -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-center">
                     <div class="cap-card-top">
                         <div class="cap-icon-box green">
                             <i class="ph-fill ph-users-three"></i>
@@ -388,7 +418,7 @@
                 </div>
 
                 <!-- 3. Visual Strategy -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-right">
                     <div class="cap-card-top">
                         <div class="cap-icon-box purple">
                             <i class="ph-fill ph-compass-tool"></i>
@@ -405,7 +435,7 @@
                 </div>
 
                 <!-- 4. Creative Production -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-left">
                     <div class="cap-card-top">
                         <div class="cap-icon-box blue">
                             <i class="ph-fill ph-camera"></i>
@@ -422,7 +452,7 @@
                 </div>
 
                 <!-- 5. Brand & Communication -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-center">
                     <div class="cap-card-top">
                         <div class="cap-icon-box gold">
                             <i class="ph-fill ph-paint-brush"></i>
@@ -439,7 +469,7 @@
                 </div>
 
                 <!-- 6. AI & Emerging Technology -->
-                <div class="capability-item app-module-card fade-up">
+                <div class="capability-item app-module-card anim-lift-right">
                     <div class="cap-card-top">
                         <div class="cap-icon-box dark">
                             <i class="ph-fill ph-cpu"></i>
@@ -465,7 +495,7 @@
                 </div>
                 <a href="how-i-work.html" class="btn-how-i-work" id="btn-how-i-work-page">
                     <span>How I Work</span>
-                    <i class="ph-bold ph-arrow-up-right"></i>
+                    <i class="ph-bold ph-arrow-up-right anim-arrow-prompt"></i>
                 </a>
             </div>
         </div>
@@ -495,7 +525,7 @@
                 <div class="brands-logo-grid" id="brands-logo-grid">
                     <!-- 1. KataKita -->
                     <a href="brand.html?brand=katakita" class="brand-partner-item fade-up fade-delay-1" title="View KataKita Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-1">
                             <img src="assets/images/KataKita/DESAIN LOGO KATA KITA.png" alt="KataKita Logo" loading="lazy" onerror="this.src='assets/images/KataKita/logo.png'">
                         </div>
                         <div class="partner-meta">
@@ -506,7 +536,7 @@
                     </a>
                     <!-- 3. Sayajo -->
                     <a href="brand.html?brand=sayajo" class="brand-partner-item fade-up fade-delay-2" title="View Sayajo Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-2">
                             <img src="assets/images/Sayajo/images (1).jfif" alt="Sayajo Logo" loading="lazy" onerror="this.src='assets/images/Sayajo/logo.jpg'">
                         </div>
                         <div class="partner-meta">
@@ -517,7 +547,7 @@
                     </a>
                     <!-- 4. Jasmine Group -->
                     <a href="brand.html?brand=jasmine-group" class="brand-partner-item fade-up fade-delay-3" title="View Jasmine Group Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-3">
                             <img src="assets/images/Jasmine Group/oXfo8ackX3JxTKVhCpGITLdWuqGJ1bdOYV2hbl7v.jpg" alt="Jasmine Group Logo" loading="lazy" onerror="this.src='assets/images/Jasmine Group/logo.jpg'">
                         </div>
                         <div class="partner-meta">
@@ -528,7 +558,7 @@
                     </a>
                     <!-- 5. The Duck King -->
                     <a href="brand.html?brand=duck-king" class="brand-partner-item fade-up fade-delay-4" title="View The Duck King Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-4">
                             <img src="assets/images/Duck King/images (2).jfif" alt="The Duck King Logo" loading="lazy" onerror="this.src='assets/images/Duck King/logo.png'">
                         </div>
                         <div class="partner-meta">
@@ -539,7 +569,7 @@
                     </a>
                     <!-- 6. Superteam Indonesia -->
                     <a href="brand.html?brand=superteam" class="brand-partner-item fade-up fade-delay-5" title="View Superteam ID Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-5">
                             <img src="assets/images/Superteam/Logo-black.png" alt="Superteam Indonesia Logo" loading="lazy" onerror="this.src='assets/images/Superteam/logo.png'">
                         </div>
                         <div class="partner-meta">
@@ -550,7 +580,7 @@
                     </a>
                     <!-- 7. Obelisk Protocol -->
                     <a href="brand.html?brand=obelisk" class="brand-partner-item fade-up fade-delay-5" title="View Obelisk Protocol Work Showcase">
-                        <div class="partner-logo-box">
+                        <div class="partner-logo-box levitate-6">
                             <img src="assets/images/Obelisk/logo.png" alt="Obelisk Protocol Logo" loading="lazy" onerror="this.src='assets/images/Obelisk/WEB-3RECAP.png'">
                         </div>
                         <div class="partner-meta">
@@ -691,7 +721,7 @@
                 <div class="impact-item fade-up fade-delay-1">
                     <span class="impact-category">Delivered Work</span>
                     <div class="impact-stat-wrap">
-                        <span class="impact-number">300</span><span class="impact-plus">+</span>
+                        <span class="impact-number" data-target="300">0</span><span class="impact-plus impact-plus-anim">+</span>
                     </div>
                     <h4>Projects & Campaigns</h4>
                     <p class="impact-desc">F&B, FMCG & Web3</p>
@@ -701,7 +731,7 @@
                 <div class="impact-item fade-up fade-delay-2">
                     <span class="impact-category">Brand Partners</span>
                     <div class="impact-stat-wrap">
-                        <span class="impact-number">20</span><span class="impact-plus">+</span>
+                        <span class="impact-number" data-target="20">0</span><span class="impact-plus impact-plus-anim">+</span>
                     </div>
                     <h4>Brands & Organizations</h4>
                     <p class="impact-desc">Corporate & Boutique</p>
@@ -711,7 +741,7 @@
                 <div class="impact-item fade-up fade-delay-3">
                     <span class="impact-category">Industry Craft</span>
                     <div class="impact-stat-wrap">
-                        <span class="impact-number">10</span><span class="impact-plus">+</span>
+                        <span class="impact-number" data-target="10">0</span><span class="impact-plus impact-plus-anim">+</span>
                     </div>
                     <h4>Years of Leadership</h4>
                     <p class="impact-desc">2014 – Present</p>
@@ -721,7 +751,7 @@
                 <div class="impact-item fade-up fade-delay-4">
                     <span class="impact-category">Crew Direction</span>
                     <div class="impact-stat-wrap">
-                        <span class="impact-number">15</span><span class="impact-plus">+</span>
+                        <span class="impact-number" data-target="15">0</span><span class="impact-plus impact-plus-anim">+</span>
                     </div>
                     <h4>Team Collaborators</h4>
                     <p class="impact-desc">Multidisciplinary</p>
@@ -824,7 +854,7 @@
                 <!-- 1. Soedjai Kartasasmita Award -->
                 <div class="achievement-card fade-up fade-delay-1">
                     <div class="achievement-card-header">
-                        <div class="achievement-icon gold">
+                        <div class="achievement-icon gold trophy-gleam-icon">
                             <i class="ph-fill ph-trophy"></i>
                         </div>
                         <div class="achievement-header-meta">
@@ -845,7 +875,7 @@
                 <!-- 2. AP Boots National Champion -->
                 <div class="achievement-card fade-up fade-delay-2">
                     <div class="achievement-card-header">
-                        <div class="achievement-icon logo">
+                        <div class="achievement-icon logo trophy-gleam-icon">
                             <img src="assets/AP_Boots.webp" alt="AP Boots Logo" loading="lazy">
                         </div>
                         <div class="achievement-header-meta">
@@ -866,7 +896,7 @@
                 <!-- 3. Rebranding Logo Competition -->
                 <div class="achievement-card fade-up fade-delay-3">
                     <div class="achievement-card-header">
-                        <div class="achievement-icon logo">
+                        <div class="achievement-icon logo trophy-gleam-icon">
                             <img src="assets/tengku maharatu.png" alt="Universitas Tengku Maharatu Logo" loading="lazy">
                         </div>
                         <div class="achievement-header-meta">

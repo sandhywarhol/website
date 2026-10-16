@@ -242,11 +242,486 @@ section, section.container {
 .fade-delay-4 { transition-delay: 0.32s; }
 .fade-delay-5 { transition-delay: 0.40s; }
 
+/* ==========================================================================
+   THE GOONIES-STYLE CINEMATIC PRELOADER (DESKTOP & MOBILE)
+   ========================================================================== */
+body.loading-lock {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Stage 1: Milk-white / Basic background screen */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--color-bg-base, #F4F1EA);
+  z-index: 9999999;
+  overflow: hidden;
+  pointer-events: auto;
+  user-select: none;
+  transition: background-color 0.15s ease;
+}
+
+/* When black curtain arrives, make outer container transparent so curtain exit reveals the website */
+.site-preloader.stage-transparent {
+  background-color: transparent !important;
+}
+
+.site-preloader.preloader-hidden {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* Stage 2 & 3: Rising Black Curtain from bottom */
+.preloader-curtain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0A0A0A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+  overflow: hidden;
+}
+
+.preloader-curtain.curtain-enter {
+  transform: translate3d(0, 0%, 0);
+}
+
+.preloader-curtain.curtain-exit {
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.95s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.preloader-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  max-width: 90vw;
+  color: #FFFFFF !important;
+}
+
+/* Top status row - strictly neutral */
+.preloader-status {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.preloader-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-transform: uppercase;
+}
+
+.preloader-pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader-pulse .pulse-core {
+  width: 5px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  opacity: 0.95;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.preloader-pulse .pulse-beacon {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: radarPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Huge Goonies Counter Display - Strictly Neutral Monochrome */
+.preloader-counter-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 0.88;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-weight: 900;
+  color: #FFFFFF !important;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.preloader-number {
+  font-size: clamp(4.5rem, 14vw, 9.8rem);
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 1.8ch;
+  text-align: right;
+  color: #FFFFFF !important;
+}
+
+.preloader-percent {
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  margin-left: 0.35rem;
+  margin-top: clamp(0.5rem, 1.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.8) !important; /* Neutral white! */
+}
+
+/* Slim progress line - strictly neutral */
+.preloader-bar-track {
+  width: clamp(210px, 34vw, 380px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+.preloader-bar-fill {
+  width: 1%;
+  height: 100%;
+  background: #FFFFFF; /* Pure crisp white progress */
+  border-radius: 2px;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
+}
+
+/* Metadata bottom */
+.preloader-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.preloader-role {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.preloader-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   AUTONOMOUS LIVING ASSETS & MICRO-INTERACTIONS ("Pikiran Sendiri")
+   ========================================================================== */
+
+/* 1. Dashboard Living Bell & Gear */
+.living-bell {
+  display: inline-block;
+  transform-origin: top center;
+  animation: bellJingle 5s ease-in-out infinite;
+}
+@keyframes bellJingle {
+  0%, 82%, 100% { transform: rotate(0); }
+  85% { transform: rotate(14deg); }
+  88% { transform: rotate(-12deg); }
+  91% { transform: rotate(10deg); }
+  94% { transform: rotate(-6deg); }
+  97% { transform: rotate(3deg); }
+}
+
+.living-gear {
+  display: inline-block;
+  transform-origin: center center;
+  animation: gearDrift 14s linear infinite;
+  transition: animation-duration 0.3s ease;
+}
+.living-gear:hover {
+  animation-duration: 2.2s;
+}
+@keyframes gearDrift {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 2. Living Capabilities Icons */
+.cap-icon-box.orange i {
+  display: inline-block;
+  animation: bulbLivingPulse 3.5s ease-in-out infinite;
+}
+@keyframes bulbLivingPulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(230, 110, 60, 0.3)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 10px rgba(230, 110, 60, 0.85)) brightness(1.2); transform: scale(1.08); }
+}
+
+.cap-icon-box.green i {
+  display: inline-block;
+  animation: teamLivingSync 4s ease-in-out infinite;
+}
+@keyframes teamLivingSync {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.cap-icon-box.purple i {
+  display: inline-block;
+  transform-origin: center center;
+  animation: compassLivingSway 5s ease-in-out infinite;
+}
+@keyframes compassLivingSway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(14deg); }
+  75% { transform: rotate(-12deg); }
+}
+
+.cap-icon-box.blue i {
+  display: inline-block;
+  animation: cameraLivingPulse 4.5s ease-in-out infinite;
+}
+@keyframes cameraLivingPulse {
+  0%, 88%, 100% { transform: scale(1); }
+  92% { transform: scale(0.85) rotate(-3deg); filter: brightness(1.3); }
+  96% { transform: scale(1.12) rotate(2deg); filter: brightness(1.4); }
+}
+
+.cap-icon-box.gold i {
+  display: inline-block;
+  transform-origin: bottom left;
+  animation: brushLivingTilt 4s ease-in-out infinite;
+}
+@keyframes brushLivingTilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+.cap-icon-box.dark i {
+  display: inline-block;
+  animation: cpuLivingPulse 3s ease-in-out infinite;
+}
+@keyframes cpuLivingPulse {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 9px rgba(100, 200, 255, 0.8)); transform: scale(1.06); }
+}
+
+/* Living Radar Ping */
+@keyframes radarPing {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Living Logo Levitation (diffused phase floating) */
+.levitate-1 { animation: floatSubtle 4.5s ease-in-out infinite; }
+.levitate-2 { animation: floatSubtle 5.2s ease-in-out infinite 0.7s; }
+.levitate-3 { animation: floatSubtle 4.8s ease-in-out infinite 1.4s; }
+.levitate-4 { animation: floatSubtle 5.5s ease-in-out infinite 2.1s; }
+.levitate-5 { animation: floatSubtle 4.3s ease-in-out infinite 0.4s; }
+.levitate-6 { animation: floatSubtle 5.0s ease-in-out infinite 1.8s; }
+
+@keyframes floatSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Trophy Gleam Animation */
+.trophy-gleam-icon {
+  position: relative;
+  overflow: hidden;
+}
+.trophy-gleam-icon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  transform: rotate(25deg);
+  animation: gleamSweep 4s ease-in-out infinite;
+}
+@keyframes gleamSweep {
+  0%, 65%, 100% { left: -100%; }
+  85% { left: 200%; }
+}
+
+/* Living Button Arrow Prompt */
+.anim-arrow-prompt {
+  display: inline-block;
+  animation: arrowPromptMotion 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes arrowPromptMotion {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(3px, -3px); }
+}
+
+/* SVG Chart Line Drawing */
+.chart-path-living {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.chart-path-living.drawn {
+  stroke-dashoffset: 0;
+}
+
+.chart-pin-living {
+  opacity: 0;
+  transform: scale(0.4);
+  transform-origin: 100px 50px;
+  transition: opacity 0.6s ease 0.8s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s;
+  animation: pinFloatLiving 3s ease-in-out infinite alternate 1.4s;
+}
+.chart-pin-living.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+@keyframes pinFloatLiving {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+/* Section Specific Scroll Entrances */
+/* Asymmetric Spatial Module Lift for Capabilities */
+.anim-lift-left {
+  opacity: 0;
+  transform: translate3d(-24px, 24px, 0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.anim-lift-center {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.anim-lift-right {
+  opacity: 0;
+  transform: translate3d(24px, 24px, 0);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-lift-left.visible,
+.anim-lift-center.visible,
+.anim-lift-right.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Horizontal Slide-ins for Education & Timeline */
+.anim-slide-left {
+  opacity: 0;
+  transform: translate3d(-35px, 0, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.anim-slide-right {
+  opacity: 0;
+  transform: translate3d(35px, 0, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.anim-slide-left.visible,
+.anim-slide-right.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Bouncy Pop-In for Interest Tags */
+.pop-in-tag {
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
+}
+.pop-in-tag.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Number Counter Plus Pulse */
+.impact-plus-anim {
+  display: inline-block;
+  color: var(--color-accent);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.impact-item.visible .impact-plus-anim {
+  animation: plusPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes plusPop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.35); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Card Glow Hover Sheen */
+.brand-partner-item,
+.app-module-card,
+.venture-card,
+.achievement-card {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+.brand-partner-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* Active WhatsApp Radar Ping */
+.radar-active-contact {
+  position: relative;
+}
+.radar-active-contact::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.35);
+  animation: radarPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .fade-up {
+  .fade-up,
+  .anim-lift-left,
+  .anim-lift-center,
+  .anim-lift-right,
+  .anim-slide-left,
+  .anim-slide-right,
+  .pop-in-tag {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .living-bell,
+  .living-gear,
+  .cap-icon-box i,
+  .levitate-1, .levitate-2, .levitate-3, .levitate-4, .levitate-5, .levitate-6,
+  .anim-arrow-prompt {
+    animation: none !important;
+  }
+  .site-preloader {
+    display: none !important;
   }
 }
 

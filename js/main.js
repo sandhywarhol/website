@@ -1,4 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // =========================================================================
+    // The Goonies-Style Cinematic Preloader (Desktop & Mobile)
+    // 1. Initial screen: milk-white base background (#F4F1EA)
+    // 2. Black curtain rises from bottom to top
+    // 3. Counter counts 1% to 100% on black screen
+    // 4. Black curtain rises off-screen to reveal website
+    // =========================================================================
+    const preloader = document.getElementById('site-preloader');
+    const preloaderCurtain = document.getElementById('preloader-curtain');
+    const preloaderNumber = document.getElementById('preloader-number');
+    const preloaderBarFill = document.getElementById('preloader-bar-fill');
+
+    if (preloader && preloaderCurtain && preloaderNumber && preloaderBarFill) {
+        document.body.classList.add('loading-lock');
+        
+        // Stage 1: Clearly visible milk-white / neutral base background screen (350ms)
+        // Stage 2: Black curtain rises smoothly from bottom to cover screen (800ms)
+        setTimeout(() => {
+            preloaderCurtain.classList.add('curtain-enter');
+
+            // Once curtain covers the screen (after ~760ms), make outer container transparent
+            // and start counting smoothly from 1 to 100%
+            setTimeout(() => {
+                preloader.classList.add('stage-transparent');
+
+                let startTime = null;
+                const totalDuration = 2000; // ms: cinematic, highly legible count-up
+
+                // Organic pacing from 1 to 100
+                const getPacingProgress = (linearRatio) => {
+                    if (linearRatio < 0.5) {
+                        return (linearRatio / 0.5) * 0.6;
+                    } else if (linearRatio < 0.8) {
+                        const subT = (linearRatio - 0.5) / 0.3;
+                        return 0.6 + subT * 0.25;
+                    } else {
+                        const subT = (linearRatio - 0.8) / 0.2;
+                        return 0.85 + Math.pow(subT, 1.6) * 0.15;
+                    }
+                };
+
+                const stepPreloader = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = timestamp - startTime;
+                    const linearRatio = Math.min(elapsed / totalDuration, 1);
+                    const targetRatio = getPacingProgress(linearRatio);
+                    // Starts strictly at 1, goes up to 100
+                    const currentPercent = Math.min(Math.max(1, Math.round(targetRatio * 100)), 100);
+
+                    preloaderNumber.textContent = currentPercent;
+                    preloaderBarFill.style.width = currentPercent + '%';
+
+                    if (linearRatio < 1 && currentPercent < 100) {
+                        requestAnimationFrame(stepPreloader);
+                    } else {
+                        preloaderNumber.textContent = '100';
+                        preloaderBarFill.style.width = '100%';
+
+                        // Hold at 100% briefly so user clearly registers 100%
+                        setTimeout(() => {
+                            // Stage 4: Black curtain lifts up and exits to reveal website
+                            preloaderCurtain.classList.add('curtain-exit');
+                            document.body.classList.remove('loading-lock');
+
+                            // Stage 5: Remove from layout
+                            setTimeout(() => {
+                                preloader.classList.add('preloader-hidden');
+                            }, 1050);
+                        }, 220);
+                    }
+                };
+
+                requestAnimationFrame(stepPreloader);
+            }, 780);
+        }, 140);
+    }
+
     // Hero scroll-zoom: progress 0..1 across the pinned track
     const heroTrack = document.getElementById('hero-track');
     const heroBg = document.querySelector('.hero-bg');
@@ -123,26 +200,108 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Animations (Fade up)
-    const observerOptions = {
+    // =========================================================================
+    // Rich Interactive Section Observer (Unique Animations & Living Assets)
+    // =========================================================================
+    const sectionObserverOptions = {
         root: null,
-        rootMargin: '0px 0px -30px 0px',
-        threshold: 0.05
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const animObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+
+                // 1. Draw SVG interactive chart if within app screens
+                const chartPath = entry.target.querySelector('.chart-path-living');
+                const chartPin = entry.target.querySelector('.chart-pin-living');
+                if (chartPath) {
+                    chartPath.classList.add('drawn');
+                    if (chartPin) chartPin.classList.add('visible');
+                }
+
+                // 2. Animate numeric count-ups if within impact or stat widgets
+                const counterEls = entry.target.querySelectorAll('.impact-number[data-target]');
+                counterEls.forEach(counter => {
+                    if (!counter.dataset.animated) {
+                        counter.dataset.animated = 'true';
+                        const target = parseInt(counter.getAttribute('data-target'), 10);
+                        const duration = 1600;
+                        const startTime = performance.now();
+
+                        const updateCounter = (now) => {
+                            const progress = Math.min((now - startTime) / duration, 1);
+                            // Ease out quartic for high-end luxury deceleration
+                            const ease = 1 - Math.pow(1 - progress, 4);
+                            const current = Math.floor(ease * target);
+                            counter.textContent = current;
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target;
+                            }
+                        };
+                        requestAnimationFrame(updateCounter);
+                    }
+                });
+
+                // 3. Stagger pop-in tags inside this target
+                const tags = entry.target.querySelectorAll('.pop-in-tag');
+                tags.forEach((tag, idx) => {
+                    setTimeout(() => {
+                        tag.classList.add('visible');
+                    }, idx * 60);
+                });
+
+                obs.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, sectionObserverOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-up');
-    fadeElements.forEach(el => {
-        observer.observe(el);
+    const animatedElements = document.querySelectorAll([
+        '.fade-up',
+        '.anim-lift-left',
+        '.anim-lift-center',
+        '.anim-lift-right',
+        '.anim-slide-left',
+        '.anim-slide-right',
+        '.impact-item',
+        '.app-screen',
+        '.pd-interest-group'
+    ].join(', '));
+
+    animatedElements.forEach(el => {
+        animObserver.observe(el);
     });
+
+    // Interactive mouse spotlight & 3D tilt tracking for desktop cards
+    if (window.innerWidth >= 992) {
+        const brandCards = document.querySelectorAll('.brand-partner-item');
+        brandCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const userCard = document.querySelector('.pd-card-user');
+        if (userCard) {
+            userCard.addEventListener('mousemove', (e) => {
+                const rect = userCard.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                userCard.style.transform = `perspective(1000px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-2px)`;
+            });
+            userCard.addEventListener('mouseleave', () => {
+                userCard.style.transform = '';
+            });
+        }
+    }
 
     // Real-Time Calendar Rendering
     let calDate = new Date();
